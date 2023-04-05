@@ -17,7 +17,7 @@ jobs:
           action: "review"
           debug: "true"
 
-       - name: score pr with chatgpt-action
+      - name: score pr with chatgpt-action
         uses: unsafecoerce/chatgpt-action@release/v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
