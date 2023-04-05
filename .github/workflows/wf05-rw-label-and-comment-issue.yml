@@ -1,4 +1,4 @@
-name: 4 - Label and Comment issue reusable workflow
+name: 5 - Label and Comment issue reusable workflow
 
 on:
   # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues

@@ -1,4 +1,4 @@
-name: 4 - Issues workflow
+name: 5 - Issues workflow
 
 on:
   # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues
