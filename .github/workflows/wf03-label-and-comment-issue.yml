@@ -36,8 +36,8 @@ jobs:
 
     steps:
 
-      - run: |
-        echo "ISSUE_NUMBER: $ISSUE_NUMBER"
+      - name: Thank you
+        run: echo "Issue number is ${{ env.ISSUE_NUMBER }}"
 
       - name: Create an Issue Comment
         uses: simpleactions/create-issue-comment@v1.0.0
