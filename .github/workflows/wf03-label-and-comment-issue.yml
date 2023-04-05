@@ -5,6 +5,9 @@ on:
   issues:
     types: [opened, edited, unlabeled, labeled]
 
+permissions:
+  issues: write
+
 jobs: 
 
   # Add learning2023 label to issue
