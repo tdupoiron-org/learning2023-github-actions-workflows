@@ -1,1 +1,22 @@
+name: "OpenAI evaluates PRs"
 
+on:
+  pull_request:
+
+jobs:
+  score-pull-requests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chatgpt-action
+        uses: unsafecoerce/chatgpt-action@release/v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ORG: ${{ secrets.OPENAI_ORG }}
+        with: 
+          action: "score"
+          #pr: ${{ github.event.pull_request.number }}
+          #repo: ${{ github.event.pull_request.head.repo.full_name }}
+          #branch: ${{ github.event.pull_request.head.ref }}
+          #comment: "This PR is ${{ steps.chatgpt.outputs.score }}% likely to be merged."
+          
