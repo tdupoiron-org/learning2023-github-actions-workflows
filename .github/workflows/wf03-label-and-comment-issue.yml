@@ -35,15 +35,12 @@ jobs:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
 
     steps:
-
-      - name: Thank you
-        run: echo "Issue number is ${{ env.ISSUE_NUMBER }}"
-
+    
       - name: Create an Issue Comment
         uses: simpleactions/create-issue-comment@v1.0.0
         with:
           github_token: ${{ env.GITHUB_TOKEN }}
-          issue-number: ${{ env.ISSUE_NUMBER }}
+          issue_number: ${{ env.ISSUE_NUMBER }}
           body: |
             ### Thank you for your contribution!
             Thank you for opening this issue. We will get back to you soon.
