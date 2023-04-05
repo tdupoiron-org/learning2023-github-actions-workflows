@@ -23,12 +23,12 @@ jobs:
     
     steps: 
       - name: Calculator
+        id: calculator
         run: |
           echo "First number: ${{ github.event.inputs.first_number }}"
           echo "Second number: ${{ github.event.inputs.second_number }}"
           echo "Operator: ${{ github.event.inputs.operator }}"
-          echo "Result: ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} = ${{ github.event.inputs.first_number | calc: github.event.inputs.operator: github.event.inputs.second_number }}"
-        id: calculator
+          echo "::set-output name=result::$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)"
 
       - name: Result
         run: |
