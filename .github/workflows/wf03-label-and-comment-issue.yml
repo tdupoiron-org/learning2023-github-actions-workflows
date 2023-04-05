@@ -36,7 +36,8 @@ jobs:
 
     steps:
 
-      - run: echo "ISSUE_NUMBER: $ISSUE_NUMBER"
+      - run: |
+        echo "ISSUE_NUMBER: $ISSUE_NUMBER"
 
       - name: Create an Issue Comment
         uses: simpleactions/create-issue-comment@v1.0.0
