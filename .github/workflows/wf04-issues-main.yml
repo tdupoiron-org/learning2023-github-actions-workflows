@@ -9,11 +9,8 @@ jobs:
 
   # Call the workflow to add a label and assign to tdupoiron
   label-and-assign:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call the workflow to add a label and assign to tdupoiron
-        uses: ./.github/actions/label-and-assign
-        with:
-          issue_number: ${{ github.event.issue.number }}
-          assignee: tdupoiron
-          label: learning2023
+    uses: ./.github/actions/label-and-assign@main
+    with:
+      issue_number: ${{ github.event.issue.number }}
+      assignee: tdupoiron
+      label: learning2023
