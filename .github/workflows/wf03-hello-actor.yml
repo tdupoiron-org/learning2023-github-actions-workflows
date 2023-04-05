@@ -26,11 +26,11 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(`$message`)
+            console.log(process.env.message)
 
       - name: Thank you usign Docker
         if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: docker://alpine:latest
         with:
           entrypoint: echo
-          args: $message
+          args: ${{ env.message }}
