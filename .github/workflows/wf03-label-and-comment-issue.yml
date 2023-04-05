@@ -3,7 +3,7 @@ name: 3 - Label and Comment issue
 on:
   # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues
   issues:
-    types: [opened]
+    types: [opened, unlabeled, reopened]
 
 permissions:
   issues: write
@@ -26,9 +26,32 @@ jobs:
               labels: ['learning2023']
             })
 
-  # Comment on issue
-  comment-on-issue:
+  # Assign to tdupoiron
+  assign:
     runs-on: ubuntu-latest
+
+    needs: add-label
+
+    steps:
+      - name: Assign to tdupoiron using script
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.addAssignees({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              assignees: ['tdupoiron']
+            })
+
+  # Comment on issue
+  comment-issue:
+    runs-on: ubuntu-latest
+
+    needs: assign
+
+    if: ${{ github.event.action == 'opened' || github.event.action == 'reopened' }}
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
