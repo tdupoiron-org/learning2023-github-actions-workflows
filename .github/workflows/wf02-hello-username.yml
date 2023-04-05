@@ -4,8 +4,10 @@ on:
   push:
 
 jobs: 
+
   thank-you-note: 
     runs-on: ubuntu-latest
+    
     steps:
       - name: Thank you
         run: echo "Thank you ${{ github.actor }} for your push!"
