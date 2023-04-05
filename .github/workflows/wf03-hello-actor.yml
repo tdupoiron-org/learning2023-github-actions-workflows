@@ -6,11 +6,12 @@ on:
 
 jobs: 
 
-  strategy:
-    matrix:
-      os: [ubuntu-latest, windows-latest, macos-latest]
+  thank-you-note:
 
-  thank-you-note: 
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
     runs-on: ${{ matrix.os }}
     
     steps:
