@@ -1,0 +1,27 @@
+name: 3 - Hello actor
+
+on:
+  push: 
+    branches: [ main ]
+
+jobs: 
+
+  thank-you-note: 
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Thank you using shell
+        run: echo "Thank you ${{ github.actor }} for your push! 🎉"
+
+      - name: Thank you using javascript
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            console.log(`Thank you ${context.actor} for your push! 🎉`)
+
+      - name: Thank you usign Docker
+        uses: docker://alpine:latest
+        with:
+          entrypoint: echo
+          args: Thank you ${{ github.actor }} for your push! 🎉
