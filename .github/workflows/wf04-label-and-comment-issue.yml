@@ -1,4 +1,4 @@
-name: 3 - Label and Comment issue
+name: 4 - Label and Comment issue
 
 on:
   # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues
