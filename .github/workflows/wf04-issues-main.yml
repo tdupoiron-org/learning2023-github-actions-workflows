@@ -5,6 +5,9 @@ on:
   issues:
     types: [opened, unlabeled, reopened]
 
+permissions:
+  issues: write
+
 jobs:
 
   # Call the workflow to add a label and assign to tdupoiron
