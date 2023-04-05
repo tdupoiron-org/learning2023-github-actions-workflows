@@ -1,0 +1,19 @@
+name: Issues workflow
+
+on:
+  # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues
+  issues:
+    types: [opened, unlabeled, reopened]
+
+jobs:
+
+  # Call the workflow to add a label and assign to tdupoiron
+  label-and-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call the workflow to add a label and assign to tdupoiron
+        uses: ./.github/actions/label-and-assign
+        with:
+          issue_number: ${{ github.event.issue.number }}
+          assignee: tdupoiron
+          label: learning2023
