@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add label to issue using script
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Assign to tdupoiron using script
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -44,6 +44,7 @@ jobs:
               repo: context.repo.repo,
               assignees: ['tdupoiron']
             })
+          
 
   # Comment on issue
   comment-issue:
@@ -51,7 +52,7 @@ jobs:
 
     needs: assign
 
-    if: ${{ github.event.action == 'opened' || github.event.action == 'reopened' }}
+    if: ${{ github.event.action == 'opened' }}
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
