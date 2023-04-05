@@ -6,6 +6,9 @@ on:
 
 jobs: 
 
+  env:
+    message: Thank you ${{ github.actor }} for your push! 🎉
+
   thank-you-note:
 
     strategy:
@@ -16,18 +19,18 @@ jobs:
     
     steps:
       - name: Thank you using shell
-        run: echo "Thank you ${{ github.actor }} for your push! 🎉"
+        run: echo "$message"
 
       - name: Thank you using javascript
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(`Thank you ${context.actor} for your push! 🎉`)
+            console.log(`$message`)
 
       - name: Thank you usign Docker
         if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: docker://alpine:latest
         with:
           entrypoint: echo
-          args: Thank you ${{ github.actor }} for your push! 🎉
+          args: $message
