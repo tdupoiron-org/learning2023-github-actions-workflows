@@ -3,7 +3,7 @@ name: 3 - Label and Comment issue
 on:
   # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues
   issues:
-    types: [opened, edited, unlabeled, labeled]
+    types: [opened]
 
 permissions:
   issues: write
@@ -25,3 +25,14 @@ jobs:
               repo: context.repo.repo,
               labels: ['learning2023']
             })
+
+  # Comment on issue
+  comment-on-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Issue Comment
+        uses: major0/gh-comment-action@v1.0.1
+        with:
+          id: example-report
+          issue: ${{ github.event.issue.number }}
+          template: ../../templates/new-issue.md
