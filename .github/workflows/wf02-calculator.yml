@@ -29,6 +29,7 @@ jobs:
           echo "Operator: ${{ github.event.inputs.operator }}"
           echo "Result: ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} = ${{ github.event.inputs.first_number | calc: github.event.inputs.operator: github.event.inputs.second_number }}"
         id: calculator
-        
+
       - name: Result
-        run: echo "Result: ${{ steps.calculator.outputs.result }}"
+        run: |
+          echo "Result: ${{ steps.calculator.outputs.result }}"
