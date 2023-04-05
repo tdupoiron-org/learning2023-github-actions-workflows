@@ -29,12 +29,20 @@ jobs:
   # Comment on issue
   comment-on-issue:
     runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+
     steps:
+
+      - run: echo "ISSUE_NUMBER: $ISSUE_NUMBER"
+
       - name: Create an Issue Comment
         uses: simpleactions/create-issue-comment@v1.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
+          github_token: ${{ env.GITHUB_TOKEN }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
           body: |
             ### Thank you for your contribution!
             Thank you for opening this issue. We will get back to you soon.
