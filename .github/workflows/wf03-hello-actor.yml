@@ -6,8 +6,12 @@ on:
 
 jobs: 
 
+  strategy:
+    matrix:
+      os: [ubuntu-latest, windows-latest, macos-latest]
+
   thank-you-note: 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     
     steps:
       - name: Thank you using shell
