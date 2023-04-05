@@ -28,8 +28,12 @@ jobs:
           echo "First number: ${{ github.event.inputs.first_number }}"
           echo "Second number: ${{ github.event.inputs.second_number }}"
           echo "Operator: ${{ github.event.inputs.operator }}"
-          echo "{result}={$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)}" >> $GITHUB_OUTPUT
 
+          export result=$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)
+
+          echo "Result: $result"
+          echo "::set-output name=result::$result"
+          
       - name: Result
         run: |
           echo "Result: ${{ steps.calculator.outputs.result }}"
