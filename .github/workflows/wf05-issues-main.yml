@@ -12,7 +12,7 @@ jobs:
 
   # Call the workflow to add a label and assign to tdupoiron
   label-and-assign:
-    uses: ./.github/workflows/wf05-label-and-comment-issue-reusable-workflow.yml
+    uses: ./.github/workflows/wf05-rw-label-and-comment-issue.yml
     with:
       issue_number: ${{ github.event.issue.number }}
       assignee: tdupoiron
