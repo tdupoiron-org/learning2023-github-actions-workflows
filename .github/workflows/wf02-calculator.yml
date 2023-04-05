@@ -28,7 +28,7 @@ jobs:
           echo "First number: ${{ github.event.inputs.first_number }}"
           echo "Second number: ${{ github.event.inputs.second_number }}"
           echo "Operator: ${{ github.event.inputs.operator }}"
-          echo "::set-output name=result::$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)"
+          echo "{result}={$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)}" >> $GITHUB_OUTPUT
 
       - name: Result
         run: |
