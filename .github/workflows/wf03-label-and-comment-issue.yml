@@ -33,7 +33,7 @@ jobs:
       - name: Create an Issue Comment
         uses: simpleactions/create-issue-comment@v1.0.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             ### Thank you for your contribution!
