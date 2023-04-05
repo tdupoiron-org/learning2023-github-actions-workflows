@@ -32,7 +32,7 @@ jobs:
           export result=$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)
 
           echo "Result: $result"
-          echo "{result}={${result}}" >> GITHUB_OUTPUT
+          echo "{result}={${result}}"
 
       - name: Result
         run: |
