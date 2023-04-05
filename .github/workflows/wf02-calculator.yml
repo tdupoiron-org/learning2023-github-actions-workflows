@@ -32,8 +32,8 @@ jobs:
           export result=$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)
 
           echo "Result: $result"
-          echo "::set-output name=result::$result"
-          
+          echo "{result}={$result}" >> $GITHUB_OUTPUT
+
       - name: Result
         run: |
           echo "Result: ${{ steps.calculator.outputs.result }}"
