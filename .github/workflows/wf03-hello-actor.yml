@@ -6,9 +6,6 @@ on:
 
 jobs: 
 
-  env:
-    message: Thank you ${{ github.actor }} for your push! 🎉
-
   thank-you-note:
 
     strategy:
@@ -16,7 +13,10 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     runs-on: ${{ matrix.os }}
-    
+
+    env:
+      message: Thank you ${{ github.actor }} for your push! 🎉
+
     steps:
       - name: Thank you using shell
         run: echo "$message"
