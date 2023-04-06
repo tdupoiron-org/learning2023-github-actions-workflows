@@ -1,0 +1,38 @@
+name: 2 - Calculator
+
+on:
+  workflow_dispatch:
+    inputs:
+      first_number:
+        description: 'First number'
+        required: true
+        default: '0'
+      second_number:
+        description: 'Second number'
+        required: true
+        default: '0'
+      operator:
+        description: 'Operator'
+        required: true
+        default: '+'
+
+jobs: 
+
+  calculator: 
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: Calculator
+        id: calculator
+        run: |
+          echo "First number: ${{ github.event.inputs.first_number }}"
+          echo "Second number: ${{ github.event.inputs.second_number }}"
+          echo "Operator: ${{ github.event.inputs.operator }}"
+
+          export result=$(echo ${{ github.event.inputs.first_number }} ${{ github.event.inputs.operator }} ${{ github.event.inputs.second_number }} | bc)
+
+          echo "RESULT=${result}" >> $GITHUB_OUTPUT
+
+      - name: Result
+        run: |
+          echo "Result: ${{ steps.calculator.outputs.RESULT }}"
