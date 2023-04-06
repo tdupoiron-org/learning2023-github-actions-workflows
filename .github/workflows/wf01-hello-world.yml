@@ -1,26 +1,13 @@
-name: Hello World Workflow
+name: 1 - Hello World
 
 on:
   workflow_dispatch:
 
-jobs:
+jobs: 
 
-  hello-world-job1:
-
+  hello-world: 
     runs-on: ubuntu-latest
-
+    
     steps: 
-      - run: echo "Hello World 1!"
-      - run: echo "Hello World 2!"
-      - run: echo "Hello World 3!"
-      - run: echo "Hello World 4!"
-
-  hello-world-job2:
-
-    runs-on: ubuntu-latest
-
-    steps: 
-      - run: echo "Hello World 1!"
-      - run: echo "Hello World 2!"
-      - run: echo "Hello World 3!"
-      - run: echo "Hello World 4!"
+      - name: Hello World
+        run: echo "Hello World"

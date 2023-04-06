@@ -1,4 +1,4 @@
-name: calculator
+name: 2 - Calculator
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ on:
         required: true
         default: '+'
 
-jobs:
+jobs: 
 
   calculator: 
     runs-on: ubuntu-latest
