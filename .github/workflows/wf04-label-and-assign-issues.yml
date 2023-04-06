@@ -1,0 +1,27 @@
+name: 4 - Label and Comment issue
+
+on:
+  # Events on issues: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#issues
+  issues:
+    types: [opened, unlabeled, reopened]
+
+permissions:
+  issues: write
+
+jobs: 
+
+  # Add learning2023 label to issue
+  add-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add label to issue using script
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['learning2023']
+            })
