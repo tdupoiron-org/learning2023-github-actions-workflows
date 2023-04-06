@@ -5,7 +5,17 @@ on:
 
 jobs:
 
-  hello-world:
+  hello-world-job1:
+
+    runs-on: ubuntu-latest
+
+    steps: 
+      - run: echo "Hello World 1!"
+      - run: echo "Hello World 2!"
+      - run: echo "Hello World 3!"
+      - run: echo "Hello World 4!"
+
+  hello-world-job2:
 
     runs-on: ubuntu-latest
 
